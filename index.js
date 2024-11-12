@@ -29,10 +29,6 @@ client.on('messageCreate',async(message)=>{
     let randomVal = Math.random()
     console.log(randomVal, parseFloat(process.env.chance))
     if (message.author.id!==client.user.id && randomVal < parseFloat(process.env.chance)) {
-        if (message.hasThread) {
-            message.thread.send("hello i am jiggly dog")
-        } else {
-            message.channel.send("hello i am jiggly dog")
-        }
+        message.reply('hello i am jiggly dog')
     }
 })
