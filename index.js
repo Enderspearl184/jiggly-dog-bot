@@ -1,20 +1,14 @@
 const { Client, Events, GatewayIntentBits } = require('discord.js');
-
+const fs = require("node:fs")
 //setup dotenv
 const dotenv = require('dotenv')
-const result = dotenv.config()
-
-if (result.error) {
-  throw result.error
-}
+dotenv.config()
 
 //maybe this makes it so i stop running out of fucking tcp ports -_-
 const Agent = require('agentkeepalive')
 const HttpsAgent = require('agentkeepalive').HttpsAgent
 require('node:http').globalAgent = new Agent()
 require('node:https').globalAgent = new HttpsAgent()
-
-
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
