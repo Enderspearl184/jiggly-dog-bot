@@ -23,6 +23,6 @@ client.on('messageCreate',async(message)=>{
     let randomVal = Math.random()
     console.log(randomVal, parseFloat(process.env.chance))
     if (message.author.id!==client.user.id && randomVal < parseFloat(process.env.chance)) {
-        message.reply('hello i am jiggly dog')
+        message.reply('hello i am jiggly dog').catch(console.error)
     }
 })
