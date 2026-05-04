@@ -1,4 +1,4 @@
-const { Client, Events, GatewayIntentBits } = require('discord.js');
+const { Client, Events, GatewayIntentBits, Partials } = require('discord.js');
 const fs = require("node:fs")
 //setup dotenv
 const dotenv = require('dotenv')
@@ -11,7 +11,10 @@ require('node:http').globalAgent = new Agent()
 require('node:https').globalAgent = new HttpsAgent()
 
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
+const client = new Client({ 
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
+    partials: [Partials.Channels]
+});
 
 client.once(Events.ClientReady, readyClient => {
 	console.log(`Ready! Logged in as ${readyClient.user.tag}`);
