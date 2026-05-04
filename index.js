@@ -13,7 +13,7 @@ require('node:https').globalAgent = new HttpsAgent()
 // Create a new client instance
 const client = new Client({ 
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
-    partials: [Partials.Channels]
+    partials: [Partials.Channel]
 });
 
 client.once(Events.ClientReady, readyClient => {
